@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>My favorite Books</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css" media="screen"/>
+	<link rel="stylesheet" href="/css/bootstrap.css" media="screen"/>
+	<link href="/css/half-slider.css" rel="stylesheet"/>
+
+</head>
+<body>
+
+<!-- Half Page Image Background Carousel Header -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for Slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <!-- Set the first background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('http://www.youthincmag.com/wp-content/uploads/2016/07/8-Books-That-Will-Leave-You-Feeling-Amazing-And-On-Top-Of-The-World.jpg')"></div>
+              
+            </div>
+            <div class="item">
+                <!-- Set the second background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('http://modny.spb.ru/sites/default/files/upload/Marlina/AdobeStock_88282716.jpeg')"></div>
+            
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('https://thinkpyxl.com/blog/wp-content/uploads/2015/01/Books.jpg')"></div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+
+    </header>
+<div class="container">
+
+
+    <h2>Edit book</h2>
+    <div>
+        <form class="form-horizontal" th:action="@{/saveNewBook}" th:object="${book}" method="post">
+        <input type="hidden" th:field="*{book_id}"/>
+            <div class="form-group">
+               
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" th:field="*{title}" placeholder = "Title" />
+                </div>
+                <br> </br>
+                
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" th:field="*{author_firstName}" placeholder="Author" />
+                </div>
+                <br> </br>
+                
+                 <div class="col-sm-4">
+                    <input type="text" class="form-control" th:field="*{author_lastName}" placeholder="Author" />
+                </div>
+            </div>
+           
+           
+            <div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </form>
+        <hr/>
+    </div>
+</div>
+<!-- jQuery -->
+    <script src="/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
+</body>
+</html>
